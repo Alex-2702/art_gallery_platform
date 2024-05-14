@@ -1,0 +1,109 @@
+{%load static%}
+<html>
+<head>
+<title>Artist comment</title>
+<style>
+body
+{
+background:#ffbb00;
+}
+.div1
+{
+width: 80%;
+margin:10 0 0 10px;
+overflow:hidden;
+padding:75px;
+background:#ff4422;
+border:2px solid;
+border-radius:10px;
+}
+.container
+{
+text-align:center;
+}
+h2
+{
+padding:10px;
+color:#0022ff;
+animation:changecolor 4s ease infinite;
+}
+label
+{
+color:blue;
+padding - left:10px;
+}
+.inputText
+{
+width: 300px;
+height:30px;
+border:none;
+border-radius:2px;
+padding-left:8px;
+border-radius:20px;
+}
+#logButton
+{
+width: 300px;
+height:30px;
+border-radius:20px;
+padding-left:7px;
+color:red;
+font-size:16px;
+background-color:gold;
+margin:20px auto;
+}
+@keyframes zoomInOut
+{
+0%,100%
+{
+border:2px solid #000000;
+}
+50%
+{
+border:3px solid #000000;
+}
+}
+@keyframes changecolor
+{
+0%,100%
+{
+color:green;
+}
+25%,75%
+{
+color:blue;
+}
+50%
+{
+color:red;
+}
+}
+#logButton:hover
+{
+animation:zoomInOut 1s ease infinite;
+background-color:orange;
+}
+</style>
+</head>
+<body>
+<h2><center>Comments Section...</center></h2>
+<div class="div1 container" style="background-image:url('{% static 'img/img9.webp'%}');background-repeat:no-repeat;background-size:1280px 720px;background-attachment:fixed;">
+<form action="comment2" method="POST">
+{%csrf_token%}
+<table border="1" cellpadding="40" bgcolor="lightblue" align="center" width="85%">
+<tr>
+<th>Customer</th><th>Artist</th><th>Comments</th>
+</tr>
+{% for i in com %}
+<tr>
+<td>{{i.urname}}</td>
+<td>{{i.arname}}</td>
+<td>{{i.comments}}</td>
+</tr>
+{% endfor %}
+</table>
+<br><br>
+</form>
+</div>
+</body>
+</html>

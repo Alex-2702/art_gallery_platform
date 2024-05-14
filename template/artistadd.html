@@ -1,0 +1,113 @@
+{%load static%}
+<html>
+<head>
+<title>Add Image</title>
+<style>
+body
+{
+background: #ffbb00;
+}
+.div1
+{
+width: 80%;
+margin:10 0 0 10px;
+overflow:hidden;
+padding:75px;
+background:#ff4422;
+border:2px solid;
+border-radius:10px;
+}
+.container
+{
+text-align:center;
+}
+h2
+{
+padding:10px;
+color:#0022ff;
+animation:changecolor 4s ease infinite;
+}
+label
+{
+color:blue;
+padding-left:10px;
+display:block;
+}
+.inputText
+{
+width: 300px;
+height:30px;
+border:none;
+border-radius:2px;
+padding-left:8px;
+border-radius:20px;
+}
+#logButton
+{
+width:300px;
+height:30px;
+border-radius:20px;
+padding-left:7px;
+color:red;
+font-size:16px;
+background-color:gold;
+margin:20px auto;
+}
+@keyframes zoomInOut
+{
+0%,100%
+{
+border:2px solid #000000;
+}
+50%
+{
+border:3px solid #000000;
+}
+}
+@keyframes changecolor
+{
+0%,100%
+{
+color:green;
+}
+25%,75%
+{
+color:blue;
+}
+50%
+{
+color:red;
+}
+}
+#logButton:hover
+{
+animation:zoomInOut 1s ease infinite;
+background-color:orange;
+}
+</style>
+</head>
+<body>
+<h2><center>Add new Images</center></h2>
+<div class="div1 container" style="background-image:url('{% static 'img/img8.webp'%}');background-repeat:no-repeat;background-size:1280px 720px;background-attachment:fixed;">
+<form action="add" method="POST" enctype="multipart/form-data">
+{%csrf_token%}
+<label><h3>Add images according to your needs...</h3></label>
+<br>
+<label>Image name</label>
+<input type="text" name="name" class="inputText" style="border:2px solid"
+placeholder="Image name" required>
+<br><br>
+<label>Price</label>
+<input type="number" name="price" class="inputText" style="border:2px solid"
+placeholder="Image price" required>
+<br><br>
+<label>Select image</label>
+<input type="file" name="image" accept="image/*">
+<br><br>
+<input type="submit" id="logButton" value="Add Image">
+<br><br>
+<p>{{msg3}}</p>
+</form>
+</div>
+</body>
+</html>

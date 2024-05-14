@@ -1,0 +1,108 @@
+{%load static%}
+<html>
+<head>
+<title>Customer comment</title>
+<style>
+body
+{
+background:#ffbb00;
+}
+.div1
+{
+width: 80%;
+margin:10 0 0 10px;
+overflow:hidden;
+padding:75px;
+background:#ff4422;
+border:2px solid;
+border-radius:10px;
+}
+.container
+{
+text-align:center;
+}
+h2
+{
+padding:10px;
+color:#0022ff;
+animation:changecolor 4s ease infinite;
+}
+label
+{
+color:blue;
+padding - left:10px;
+}
+.inputText
+{
+width: 300px;
+height:30px;
+border:none;
+border-radius:2px;
+padding-left:8px;
+border-radius:20px;
+}
+#logButton
+{
+width: 300px;
+height:30px;
+border-radius:20px;
+padding-left:7px;
+color:red;
+font-size:16px;
+background-color:gold;
+margin:20px auto;
+}
+@keyframes zoomInOut
+{
+0%,100%
+{
+border:2px solid #000000;
+}
+50%
+{
+border:3px solid #000000;
+}
+}
+@keyframes changecolor
+{
+0%,100%
+{
+color:green;
+}
+25%,75%
+{
+color:blue;
+}
+50%
+{
+color:red;
+}
+}
+#logButton:hover
+{
+animation:zoomInOut 1s ease infinite;
+background-color:orange;
+}
+</style>
+</head>
+<body>
+<h2><center>Share your Comments here...</center></h2>
+<div class="div1 container" style="background-image:url('{% static 'img/img13.jpeg'%}');background-repeat:no-repeat;background-size:1280px 720px;background-attachment:fixed;">
+<form action="comment1" method="POST">
+{%csrf_token%}
+<label >Your Name</label><br>
+<input type="text" name="uname" class="inputText" style="border:2px solid" placeholder="Your Name" >
+<br><br>
+<label >Artist Name</label><br>
+<input type="text" name="aname" class="inputText" style="border:2px solid" placeholder="Artist Name" >
+<br><br>
+<label>Comment</label><br>
+<textarea name="comment" class="inputText" style="border:2px solid;height:100px;border-radius:10px;" placeholder= "Comment here" rows="10"></textarea>
+<br><br>
+<input type="submit" name= "log" id="logButton" value= "Add comment">
+<br><br>
+<p><font color="#449922">{{msg4}}</font></p>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{%load static%}
+<html>
+<head>
+<title>Start Page</title>
+<style>
+body
+{
+background:#ffbb00;
+}
+.div1
+{
+width: 80%;
+margin:10 0 0 10px;
+overflow:hidden;
+padding:75px;
+background:#ff4422;
+border:2px solid;
+border-radius:10px;
+}
+.container
+{
+text-align:center;
+}
+h2
+{
+padding:10px;
+color:#0022ff;
+animation:changecolor 4s ease infinite;
+}
+label
+{
+color:blue;
+padding-left:10px;
+display:block;
+}
+#logButton
+{
+width:300px;
+height:30px;
+border-radius:20px;
+padding-left:7px;
+color:red;
+font-size:16px;
+background-color:gold;
+margin:20px auto;
+}
+@keyframes zoomInOut
+{
+0%,100%
+{
+border:2px solid #000000;
+}
+50%
+{
+border:3px solid #000000;
+}
+}
+@keyframes changecolor
+{
+0%,100%
+{
+color:green;
+}
+25%,75%
+{
+color:blue;
+}
+50%
+{
+color:red;
+}
+}
+#logButton:hover
+{
+animation:zoomInOut 1s ease infinite;
+background-color:orange;
+}
+</style>
+</head>
+<body>
+<h2><center>Login or Register</center></h2>
+<div class="div1 container" style="background-image:url('{% static 'img/img5.jpg'%}');background-repeat:no-repeat;background-size:1280px 720px;background-attachment:fixed;">
+<form action="regform" method="POST">
+{%csrf_token%}
+<marquee behavior="scroll"><h1 style="color:white;">Welcome to Art Gallery Platform</h1></marquee>
+<br>
+<marquee behavior="scroll" direction="up"><h4 style="animation:changecolor 4s ease infinite;">Login for more options...</h4></marquee>
+<input type="submit" id="logButton" value="Login" formaction="login">
+<br><br>
+<h3><label>OR</label></h3>
+<br>
+<input type="submit" id="logButton" value="Register">
+<br><br>
+</form>
+</div>
+</body>
+</html>

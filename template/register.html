@@ -1,0 +1,107 @@
+{%load static%}
+<html>
+<head>
+<title>Registration Page</title>
+<style>
+body
+{
+background:#ffbb00;
+}
+.div1
+{
+width: 80%;
+margin:auto;
+margin:10 0 0 10px;
+overflow:hidden;
+padding:75px;
+background:#ff4422;
+border:2px solid;
+border-radius:10px;
+}
+h2
+{
+padding:10px;
+color:#0022ff;
+animation:changecolor 4s ease infinite;
+}
+label
+{
+color:blue;
+padding-left:10px;
+}
+.inputText
+{
+width: 300px;
+height:30px;
+border:none;
+border-radius:2px;
+padding-left:8px;
+border-radius:20px;
+}
+#logButton
+{
+width: 300px;
+height:30px;
+border-radius:20px;
+padding-left:7px;
+color:red;
+font-size:16px;
+background-color:gold;
+}
+@keyframes zoomInOut
+{
+0%,100%
+{
+border:2px solid #000000;
+}
+50%
+{
+border:3px solid #000000;
+}
+}
+@keyframes changecolor
+{
+0%,100%
+{
+color:green;
+}
+25%,75%
+{
+color:blue;
+}
+50%
+{
+color:red;
+}
+}
+#logButton:hover
+{
+animation:zoomInOut 1s ease infinite;
+background-color:orange;
+}
+</style>
+</head>
+<body>
+<h2><center>Registration Page</center></h2>
+<div class="div1 container" style="background-image:url('{% static 'img/img2.jpg'%}');background-repeat:no-repeat;background-size:1280px 720px;background-attachment:fixed;">
+<form action="register" method="POST">
+{%csrf_token%}
+<label >User Name</label>
+<br>
+<input type="text" name="name" class="inputText" style="border:2px solid" placeholder="User Name" >
+<br><br>
+<label>Password</label>
+<br>
+<input type="password" name="password" class="inputText" style="border:2px solid" placeholder= "Password">
+<br><br>
+<input type="radio" name="id" id="op1" value="op1">Artist<br>
+<input type="radio" name="id" id="op2" value="op2">Customer
+<br><br><br><br>
+<input type="submit" name= "log" id="logButton" value= "Register">
+<br><br>
+<p><font color="#449922">{{msg1}}</font></p>
+</form>
+<a href="start1" style="color:blue;border:2px solid;"><b>go back>></b></a>
+</div>
+</body>
+</html>
